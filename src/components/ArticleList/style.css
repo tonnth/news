@@ -1,0 +1,18 @@
+.list-empty {
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.list-loading {
+    text-align: center;
+    padding: 15px;
+}
+
+.list-error {
+    text-align: center;
+    padding: 15px;
+    color: red;
+    font-weight: bold;
+}

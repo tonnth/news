@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from "react";
+import {Redirect, Route, Switch} from "react-router-dom";
+import {connect} from "react-redux";
+import SearchBar from "./components/SearchBar";
+import {ROUTES} from "./staticValue";
+import NewsScreen from "./screens/NewsScreen";
+import {fetchHistory} from "./redux/action";
+import "./App.css";
+import HistoryScreen from "./screens/HistoryScreen";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = props => {
+	const { fetchHistory } = props;
+	useEffect(() => {
+		fetchHistory();
+	}, []);
 
-export default App;
+	return (
+		<div className="container">
+			<div className='col'>
+				<SearchBar/>
+				<Switch>
+					<Redirect exact from="/" to={ROUTES.news}/>
+					<Route path={ROUTES.news} component={NewsScreen}/>
+					<Route exact path={ROUTES.history} component={HistoryScreen}/>
+				</Switch>
+			</div>
+		</div>
+	);
+};
+
+const mapDispatch = {
+	fetchHistory
+};
+
+
+export default connect(null, mapDispatch)(App);

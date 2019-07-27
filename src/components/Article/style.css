@@ -1,0 +1,42 @@
+.image {
+    width: 100%
+}
+
+.article-container {
+    background: #fff;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 300ms ease-in-out;
+    margin: 20px 0;
+}
+
+.article-container:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.article-content {
+    padding: 15px;
+}
+
+.article-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    transition: all 300ms ease-in-out;
+}
+
+.article-title:hover {
+    text-decoration: underline;
+    color: blue
+}
+
+.article-source {
+    font-size: smaller;
+    padding-top: 5px;
+    opacity: 0.5;
+    font-weight: 500;
+}
+
+.article-description {
+    color: #262626
+}
